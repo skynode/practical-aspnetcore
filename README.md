@@ -1,4 +1,4 @@
-# 78 samples for aspnetcore fundamentals (updated daily)
+# 84 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -32,7 +32,7 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 To run these samples, simply open your command line console,  go to each folder and execute ```dotnet restore``` and then continue with ```dotnet watch run```.
 
-* **Hello World (21)**
+* **Hello World (20)**
 
   * [Hello World with reload](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-reload)
 
@@ -77,6 +77,11 @@ To run these samples, simply open your command line console,  go to each folder 
 
       Why? just because we can.
 
+    * [Hello world with IStartupFilter](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-istartupfilter)
+
+      Use `IStartupFilter` to configure your middleware. This is an advanced topic. [This article](https://andrewlock.net/exploring-istartupfilter-in-asp-net-core/) tries at explaining `IStartupFilter`. I will add more samples so `IStartupFilter` can be clearer.
+      
+
   * [Hello World with Connection info](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-connection-info)
 
     Enumerate the connection information of a HTTP request.
@@ -117,30 +122,36 @@ To run these samples, simply open your command line console,  go to each folder 
 
     Requires `Microsoft.Extensions.PlatformAbstractions" : "1.1.0-*` dependency. This sample shows how to obtain application environment information (target framework, etc).
 
-  * [Cookies](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-cookies)
-
-    Simply read and write cookies.
-
-  * [Removing cookies](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-cookies-2)
-
-    Simply demonstrate on how to remove cookies.
-
   * [Adding HTTP Response Header](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-header)
 
     Demonstrate on how to add a response header and where is allowed place to do it.
 
-* **Form (2)**
+* **Input (4)**
   
-  We take dependency on ```"Microsoft.AspNetCore.Routing" : "1.1.0-*"``` to enable routing facilities to make the form handling easier.
+  This section shows all the different ways you can capture input to your web application.
 
-  * [Form Values](https://github.com/dodyg/practical-aspnetcore/tree/master/form-values) 
+  * **Form (2)**
     
-    Handles the values submitted via a form.
+    We take dependency on ```"Microsoft.AspNetCore.Routing" : "1.1.0-*"``` to enable routing facilities to make the form handling easier.
+
+    * [Form Values](https://github.com/dodyg/practical-aspnetcore/tree/master/form-values) 
+      
+      Handles the values submitted via a form.
 
 
-  * [Form Upload File](https://github.com/dodyg/practical-aspnetcore/tree/master/form-upload-file) 
-    
-    Upload a single file and save it to the current directory (check out the usage of ```.UseContentRoot(Directory.GetCurrentDirectory())```)
+    * [Form Upload File](https://github.com/dodyg/practical-aspnetcore/tree/master/form-upload-file) 
+      
+      Upload a single file and save it to the current directory (check out the usage of ```.UseContentRoot(Directory.GetCurrentDirectory())```)
+
+  * **Cookies (2)**
+          
+      * [Cookies](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-cookies)
+
+        Read and write cookies.
+
+      * [Removing cookies](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-cookies-2)
+
+        Simply demonstrates on how to remove cookies.
 
 * **Routing (9)**
 
@@ -433,6 +444,32 @@ To run these samples, simply open your command line console,  go to each folder 
     * text/xml
     * application/json
     * text/json 
+
+* **Diagnostics(5)**
+
+  These samples take a dependency of ```"Microsoft.AspNetCore.Diagnostics":"1.1.1"```. 
+
+  * [Welcome Page](https://github.com/dodyg/practical-aspnetcore/tree/master/diagnostics)
+
+    Simply show a welcome page to indicate that the app is working properly. This sample does not use a startup class simply because it's just a one line code.
+
+  * [Developer Exception Page](https://github.com/dodyg/practical-aspnetcore/tree/master/diagnostics-2)
+
+    Show any unhandled exception in a nicely formatted page with error details. Only use this in development environment!
+
+
+  * [Custom Global Exception Page](https://github.com/dodyg/practical-aspnetcore/tree/master/diagnostics-3)
+
+    Use ```IExceptionHandlerFeature``` feature provided by ```Microsoft.AspNetCore.Diagnostics.Abstractions``` to create custom global exception page.
+
+  * [Custom Global Exception Page - 2 ](https://github.com/dodyg/practical-aspnetcore/tree/master/diagnostics-4)
+
+    Similar to the previous one except that that we use the custom error page defined in separate path.
+
+  * [Status Pages ](https://github.com/dodyg/practical-aspnetcore/tree/master/diagnostics-5)
+
+    Use ```UseStatusCodePagesWithRedirects```.  **Beware:** This extension method handles your 5xx return status code by redirecting it to a specific url. It will not handle your application exception in general (for this use ```UseExceptionHandler``` - check previous samples).
+
 
 * **Misc (4)**
 
