@@ -1,4 +1,4 @@
-# 84 samples for aspnetcore fundamentals (updated daily)
+# 91 samples for aspnetcore fundamentals (updated daily)
 
 ## Welcome
 
@@ -30,9 +30,13 @@ If a sample require additional dependencies, I will list them.
 
 I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to play around with these samples but it is not required. You can use Visual Studio 2017 as well.
 
+## How to run these samples
+
 To run these samples, simply open your command line console,  go to each folder and execute ```dotnet restore``` and then continue with ```dotnet watch run```.
 
-* **Hello World (20)**
+
+## List
+* **Hello World (21)**
 
   * [Hello World with reload](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-reload)
 
@@ -82,7 +86,11 @@ To run these samples, simply open your command line console,  go to each folder 
       Use `IStartupFilter` to configure your middleware. This is an advanced topic. [This article](https://andrewlock.net/exploring-istartupfilter-in-asp-net-core/) tries at explaining `IStartupFilter`. I will add more samples so `IStartupFilter` can be clearer.
       
 
-  * [Hello World with Connection info](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-connection-info)
+  * [Show errors during startup](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-capture-errors)
+
+    Show a detailed report on exceptions that happen during the startup phase of your web app. It is very useful during development.
+
+  * [Show Connection info](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-with-connection-info)
 
     Enumerate the connection information of a HTTP request.
 
@@ -126,9 +134,23 @@ To run these samples, simply open your command line console,  go to each folder 
 
     Demonstrate on how to add a response header and where is allowed place to do it.
 
-* **Input (4)**
+* **Request(7)**
   
-  This section shows all the different ways you can capture input to your web application.
+  This section shows all the different ways you capture input and examine request to your web application.
+
+  * **HTTP Verb (1)**
+    * [Get request verb](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-basic-request-verb)
+      
+      Detect the verb/method of the current request. 
+
+  * **Headers (2)**
+    * [Access Request Headers](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-basic-request-headers)
+      
+      Enumerate all the available headers in a request.
+
+    * [Type Safe Access to Request Headers](https://github.com/dodyg/practical-aspnetcore/tree/master/hello-world-startup-basic-request-headers-typed)
+      
+      Instead of using string to access HTTP headers, use type safe object properties to access common HTTP headers.
 
   * **Form (2)**
     
@@ -137,7 +159,6 @@ To run these samples, simply open your command line console,  go to each folder 
     * [Form Values](https://github.com/dodyg/practical-aspnetcore/tree/master/form-values) 
       
       Handles the values submitted via a form.
-
 
     * [Form Upload File](https://github.com/dodyg/practical-aspnetcore/tree/master/form-upload-file) 
       
@@ -471,17 +492,32 @@ To run these samples, simply open your command line console,  go to each folder 
     Use ```UseStatusCodePagesWithRedirects```.  **Beware:** This extension method handles your 5xx return status code by redirecting it to a specific url. It will not handle your application exception in general (for this use ```UseExceptionHandler``` - check previous samples).
 
 
-* **Misc (4)**
+* **Static Files(4)**
+
+    This additional dependency is required to enable the functionality ```"Microsoft.AspNetCore.StaticFiles": "1.1.0"```. 
 
   * [Serve static files](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files)
 
-    Simply serve static files (html, css, images, etc). 
-    
-    This additional dependency is required to enable the functionality ```"Microsoft.AspNetCore.StaticFiles": "1.1.0"```. 
+    Simply serve static files (html, css, images, etc).     
     
     There are two static files being served in this project, index.html and hello.css. They are stored under ```wwwroot``` folder, which is the default folder location for this library. 
     
     To access them you have to refer them directly e.g. ```localhost:5000/index.html``` and ```localhost:5000/hello.css```.
+
+  * [Allow Directory Browsing](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files-2)
+    
+    Allow listing and browsing of your ```wwwroot``` folder.
+
+  * [Use File Server](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files-3)
+    
+    Combines the functionality of ```UseStaticFiles, UseDefaultFiles, and UseDirectoryBrowser```.
+
+  * [Custom Directory Formatter](https://github.com/dodyg/practical-aspnetcore/tree/master/serve-static-files-4)
+    
+    Customize the way Directory Browsing is displayed. In this sample the custom view only handles flat directory. We will deal with 
+    more complex scenario in the next sample.
+
+* **Misc (3)**
 
   * [Markdown server](https://github.com/dodyg/practical-aspnetcore/tree/master/markdown-server)
 
@@ -510,12 +546,9 @@ These are other aspnetcore resources with code samples
 
 * [aspnetcore documentation](https://github.com/aspnet/Docs/tree/master/aspnet/fundamentals)
 * [aspnetcore entropy](https://github.com/aspnet/entropy)
-  
-  "This repo is a chaotic experimental playground for new features and ideas. Check here for small and simple samples for individual features."
 
-# Contributor Guidelines
 
-- Put all the code inside Program.cs. It makes it easier for casual users to read the code online and learn something. Sometimes it is too cumbersome to chase down types using browser.
-- Keep your sample very simple and specific. Try to minimise the amount of concept that people need to know in order to understand your code.
-- There is no sample that is too small. If it shows one single interesting and useful knoweldge, add it in.
-- When you are ready, update this document and add the link to the project with a paragraph or two. Do not forget to increment the sample count at the beginning of this document.
+## Misc
+
+* [Contributor Guidelines](https://github.com/dodyg/practical-aspnetcore/blob/master/CONTRIBUTING.md)
+* [Code of Conduct](https://github.com/dodyg/practical-aspnetcore/blob/master/CODE_OF_CONDUCT.md)
