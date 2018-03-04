@@ -2,9 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <AssemblyName>httpclientfactory</AssemblyName>
+    <AssemblyName>hello-world-startup-app-package</AssemblyName>
     <OutputType>Exe</OutputType>
-    <PackageId>httpclientfactory</PackageId>
+    <PackageId>hello-world-startup-app-package</PackageId>
   </PropertyGroup>
 
   <ItemGroup>

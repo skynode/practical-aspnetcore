@@ -5,10 +5,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore;
 using Microsoft.Extensions.Configuration;
-using Microsoft.AspNetCore.Routing;
-using System.Net.Http;
 
-namespace StartupBasic 
+namespace StartupBasic
 {
     public class Startup
     {
@@ -19,23 +17,18 @@ namespace StartupBasic
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddHttpClient();
+            //This is the only service available at ConfigureServices
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
         {
-            app.Run(async context =>
+            //These are the four default services available at Configure
+            app.Run(context =>
             {
-                var httpClient = context.RequestServices.GetService<IHttpClientFactory>();
-                var client = httpClient.CreateClient();
-                var result = await client.GetStringAsync("http://scripting.com/rss.xml");
-            
-                context.Response.Headers.Add("Content-Type", "application/rss+xml");
-                await context.Response.WriteAsync(result);
+                return context.Response.WriteAsync("Hello world");
             });
         }
     }
-    
 
     public class Program
     {
