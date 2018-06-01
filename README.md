@@ -1,31 +1,29 @@
-# 127 samples for aspnetcore fundamentals (updated daily)
+# 132 samples for aspnetcore fundamentals (updated daily)
 
 ## Note
 
-Now that .NET Core 2.0 and ASP.NET Core 2.0 have been released, I am going to update all the existing samples over time. All the new samples will rely on ASP.NET Core 2.0 immediately.
+I am working on the 2.1 branch at the moment to convert all the samples to 2.1.
 
 If you are studying ASP.NET Core, I am lurking on this [Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore).
 
 
+### MVC, SignalR and Blazor
+
+There are dedicated samples for ASP.NET Core MVC 2.1 [here (5 samples)](/projects/mvc), ASP.NET Core SignalR 2.1 [here (0 sample)](/projects/signalr) and Blazor [here (0 sample)](/projects/blazor). The rest of projects here are for ASP.NET Core only.
+
 ## Welcome
 
-The goal of this project is to enable .NET programmers to learn the new ASP.NET Core stack from the ground up directly from code. I will not address ASP.NET Core MVC in this project. There is so much power in the underlying ASP.NET Core stack. Don't miss them! 
+The goal of this project is to enable .NET programmers to learn the new ASP.NET Core stack from the ground up directly from code. There is so much power in the underlying ASP.NET Core stack. Don't miss them! 
 
 You should download the **latest release version** [.NET Core SDK](https://www.microsoft.com/net/download/core#/sdk) to be able to run these samples.
  
 If you are running **these samples on Linux**, change the target framework inside the csproj files from
 
-```
-<TargetFramework>net461</TargetFramework>
-```
+`<TargetFramework>net461</TargetFramework>`
 to
-```
-<TargetFramework>netcoreapp1.1</TargetFramework>
-```
+`<TargetFramework>netcoreapp1.1</TargetFramework>`
 or to
-```
-<TargetFramework>netcoreapp2.0</TargetFramework>
-```
+`<TargetFramework>netcoreapp2.0</TargetFramework>`
 
 Every sample is designed specifically to demonstrate a single idea. We will go wide and deep to the nitty gritty of ASP.NET Core stack. Enjoy the ride!
 
@@ -39,34 +37,13 @@ I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to
 
 To run these samples, simply open your command line console,  go to each folder and execute ```dotnet restore``` and then continue with ```dotnet watch run```.
 
-## What's new in ASP.NET Core 2.1 Preview 1(2)
+## What's new in ASP.NET Core 2.1 RC1(2)
 
-  *Pre-requisite*: Make sure you download .NET Core SDK 2.1 Preview 1 [2.1.0-preview1-final](https://www.microsoft.com/net/download/dotnet-core/sdk-2.1.300-preview1) otherwise below examples won't work.
+  *Pre-requisite*: Make sure you download .NET Core SDK 2.1 RC1 [2.1.0-rc1-final](https://www.microsoft.com/net/download/dotnet-core/sdk-2.1.300-rc1) otherwise below examples won't work.
 
-  All the examples below uses `2.1.0-preview1-final` version.
+  All the examples below uses `2.1.0-rc1-final` version.
 
-  * [Hello World with Microsoft.AspNetCore.App package](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2-1/hello-world-startup-app-package)
-
-    If you are targeting `netcoreapp2.1`, you can use `Microsoft.AspNetCore.App` meta package that download **most** of the necessary packages to develop an ASP.NET Core/MVC system (including EF DB support).
-
-    This package is a trimmed version of `Microsoft.AspNetCore.All` meta package. You can find more details about the removed dependencies [here](https://github.com/aspnet/Announcements/issues/287).
-
-    `Microsoft.AspNetCore.App` is going to be the default meta package when you create a new ASP.NET Core 2.1 package.
-
-  * [HttpClientFactory](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2-1/httpclientfactory)
-
-    Now you can have centrally managed instance of HttpClient using ```IHttpClientFactory``` via dependency injection.
-
-
-## What's new in ASP.NET Core 2.0 (11)
-
-  This is a good explanation on [what's new on ASP.NET Core 2.0](https://blogs.msdn.microsoft.com/webdev/2017/08/25/asp-net-core-2-0-features-1/). If you are new to ASP.NET Core, skip this section and go through the examples of ```ASP.NET Core 1.1/2.0 Samples``` listed below. They are better organized for newcomers. 
-
-  This section will show new things in [ASP.NET Core 2.0](https://github.com/aspnet/Home/releases/tag/2.0.0). The rest of the samples will work in ASP.NET Core 1.1 unless specified otherwise.
-
-  The samples use SDK `2.1.4`.
-
-  **New code based idiom to start your host for ASP.NET Core 2.1.**
+  **New code based idiom to start your host for ASP.NET Core 2.1**
 
   It is recommended to use the following approach 
 
@@ -102,6 +79,28 @@ To run these samples, simply open your command line console,  go to each folder 
                 .Build();
       }
   ```
+
+  * [Hello World with Microsoft.AspNetCore.App package](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2-1/hello-world-startup-app-package)
+
+    If you are targeting `netcoreapp2.1`, you can use `Microsoft.AspNetCore.App` meta package that download **most** of the necessary packages to develop an ASP.NET Core/MVC system (including EF DB support).
+
+    This package is a trimmed version of `Microsoft.AspNetCore.All` meta package. You can find more details about the removed dependencies [here](https://github.com/aspnet/Announcements/issues/287).
+
+    `Microsoft.AspNetCore.App` is going to be the default meta package when you create a new ASP.NET Core 2.1 package.
+
+  * [HttpClientFactory](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2-1/httpclientfactory)
+
+    Now you can have centrally managed instance of HttpClient using ```IHttpClientFactory``` via dependency injection.
+
+
+## What's new in ASP.NET Core 2.0 (11)
+
+  This is a good explanation on [what's new on ASP.NET Core 2.0](https://blogs.msdn.microsoft.com/webdev/2017/08/25/asp-net-core-2-0-features-1/). If you are new to ASP.NET Core, skip this section and go through the examples of ```ASP.NET Core 1.1/2.0 Samples``` listed below. They are better organized for newcomers. 
+
+  This section will show new things in [ASP.NET Core 2.0](https://github.com/aspnet/Home/releases/tag/2.0.0). The rest of the samples will work in ASP.NET Core 1.1 unless specified otherwise.
+
+  The samples use SDK `2.1.4`.
+
 
   * [Hello World with Microsoft.AspNetCore.All package](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/hello-world-startup-all-package)
 
@@ -843,8 +842,9 @@ All these projects require the following dependencies
   * [Trimming Microsoft.AspNetCore.All hello world application](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/hello-world-startup-all-package-trimming)
 
     Run ```dotnet publish``` or ```dotnet build``` and read the output in your terminal. It will read something similar to ```Trimmed 128 out of 180 files for a savings of 20.8 MB Final app size is 3.2 MB```. You can turn off the trimming by setting ```<TrimUnusedDependencies>true</TrimUnusedDependencies>``` to ```false``` at the project file.
+
   
-* **Modules (1)**
+* **Modules (2)**
 
   This section shows how to create pluggable and extensible web system using ```Orchardcore Modules``` system.
 
@@ -853,6 +853,11 @@ All these projects require the following dependencies
     Run ```dotnet watch run``` at the ```web``` folder. This example shows a module that just writes "hello world".
 
     The ```module1``` project requires ```OrchardCore.Module.Targets``` and the host ```web``` project requires ```OrchardCore.Application.Targets``` and ```OrchardCore.Modules```.
+
+
+  * [Keeping track of anonymous users](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/aspnet-core-2/anonymous-id)
+
+    Keep track of anonymous user in your ASP.NET Core (useful in scenario such as keeping track of shopping cart) using `ReturnTrue.AspNetCore.Identity.Anonymous` library.
 
 
 * **Middleware (1)**
@@ -878,14 +883,6 @@ All these projects require the following dependencies
 
     Hello world the hard way.
 
-
-* **SignalR (1)**
-
-  SignalR is the real time communication library designed for ASP.NET Core. This library is still in `alpha 2` status at the moment. Check back this section often. We are going to be up to date with the latest SignalR revisions.
-  
-  * [Broadcast All Input](https://github.com/dodyg/practical-aspnetcore/tree/master/projects/signalr)
-   
-    This sample demonstrate on how to broadcast received input to all connected clients.
   
 ## Other resources
 

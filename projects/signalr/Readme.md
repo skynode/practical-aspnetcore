@@ -1,6 +1,5 @@
-## Simple example of ASP.NET Core 2 and SignalR Core
+# SignalR
 
-1. Run `npm install` at `Client` directory.
-2. To run just execute `dotnet run` inside both `Client` and `Server` directory in separate clis.
-3. Go to `http://localhost:5001` in two tabs
-4. Start chatting away (kinda)
+This section contains all micro samples for ASP.NET Core SignalR 2.1.
+
+Pre-requisite: Make sure you download .NET Core SDK 2.1 Preview 1 2.1.0-preview1-final otherwise below examples won't work.

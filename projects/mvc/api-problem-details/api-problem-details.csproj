@@ -2,16 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <AssemblyName>hello-world-startup-app-package</AssemblyName>
+    <AssemblyName>ApiProblemDetails</AssemblyName>
     <OutputType>Exe</OutputType>
-    <PackageId>hello-world-startup-app-package</PackageId>
+    <PackageId>Api-Problem-Details</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.0-rc1-final" />
   </ItemGroup>
-
-  <ItemGroup>
-  </ItemGroup>
-
 </Project>
