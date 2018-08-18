@@ -16,26 +16,25 @@ namespace Module
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddModules();
+            services.AddOrchardCore();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
         {
-            app.UseModules();
+            app.UseOrchardCore();
         }
     }
     
-   public class Program
+    public class Program
     {
         public static void Main(string[] args)
         {
-            BuildWebHost(args).Run();
+            CreateWebHostBuilder(args).Build().Run();
         }
 
-        public static IWebHost BuildWebHost(string[] args) =>
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
-                .UseEnvironment("Development")
-                .Build();
+                .UseEnvironment("Development");
     }
 }
